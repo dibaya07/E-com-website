@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Filter() {
   return (
-     <div className="left bg-gray-400">
+     <div className="left bg-gray-400 w-1/5">
           <div className='flex '>
           <span>Filters</span>
           <span>clear all</span>

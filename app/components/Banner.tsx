@@ -13,7 +13,8 @@ export default function Banner() {
         </div>
       </div>
       <div className="right flex-1">
-        <img src="" alt="Product image" />
+        {/* <img src="" alt="Product image" /> */}
+        <span>img here</span>
       </div>
     </div>
   )

@@ -1,5 +1,6 @@
-import { error } from "console";
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
 
 export default async function connected() {
     try{

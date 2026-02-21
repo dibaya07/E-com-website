@@ -1,6 +1,6 @@
 import { sampleProducts } from "../data/data.ts";
 import connected from "../config/dbConnect.ts";
-import { Products } from "@/models/product.ts";
+import { Products } from "../models/product.ts";
 
 const seedProducts = async()=>{
     await connected();
