@@ -6,10 +6,8 @@ export async function GET (request : Request){
     try{
         await connected()
         const allProducts = await Products.find()
-        // console.log(allProducts)
+        // console.log(allProducts[0])
         return Response.json(allProducts)
-
-        return Response.json({message:'did you get your data'})
     }catch(error){
         console.log('product route error', error)
     }

@@ -1,10 +1,8 @@
 "use client"
-// import connected from "@/config/dbConnect";
-// import { Products } from "@/models/product";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-// import React from "react";
-// import { v4 as uuidv4 } from 'uuid';
+import { products } from "../types/product.types";
+
 
 export default  function ProductList() {
   const [allProducts, setAllProducts] = useState([])
@@ -37,17 +35,19 @@ export default  function ProductList() {
   //   console.log(allProducts)
   // }, [allProducts])
   
-  
+  const productHandler = ()=>{
+    console.log('product clicked ')
+  }
 
   if (loading) return<div>loading...</div>
  
   return (
     <div className="flex flex-wrap justify-around">
-      {!loading && allProducts.length > 0 && allProducts.map((item) => {
+      {!loading && allProducts.length > 0 && allProducts.map((item : products) => {
         // {console.log(item)}
         return (
-          <div className="flex flex-col mt-2 ml-2 bg-blue-400 border border-solid border-black w-1/4 cursor-pointer" key={item.id}>  
-            {/* onClick={navigateToSpecificProduct} */}
+          <div className="flex flex-col mt-2 ml-2 bg-blue-400 border border-solid border-black w-1/4 cursor-pointer" key={item._id} onClick={productHandler} >  
+            
             
             <span className="border border-solid border-black flex justify-center items-center">
             <Image src='/productImg.jpeg' alt="product image" width={100} height={100} />
