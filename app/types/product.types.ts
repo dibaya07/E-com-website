@@ -1,4 +1,4 @@
-export interface products {
+export interface Products {
     _id: number,
     id: number,
     title: string,
@@ -8,4 +8,8 @@ export interface products {
     price: number,
     rating: number,
     stock: number,
+}
+
+export interface ProductState {
+    allProducts : Products[]
 }

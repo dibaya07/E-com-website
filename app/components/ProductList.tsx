@@ -1,39 +1,33 @@
 "use client"
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { products } from "../types/product.types";
+import { Products } from "../types/product.types";
+import { useAppSelector, useAppDispatch} from "@/lib/hook";
+import { setProducts } from "../features/product/productSlice";
+
 
 
 export default  function ProductList() {
-  const [allProducts, setAllProducts] = useState([])
+  
+  const allProducts = useAppSelector(state => state.allProducts)
+  const dispatch = useAppDispatch()
   const [loading, setLoading] = useState(true)
-  // await connected()
-  // const allProducts = await Products.find();
   const getAllProducts = async()=>{
     try{
     const res = await fetch('/api/products')
     const data = await res.json()
-    // console.log(data)
-    // if(allProducts.length == 0 ){
-      // console.log('hi')
-      // console.log(allProducts.length )
-      setAllProducts(data)
-    // }
+      dispatch(setProducts(data))
     }catch(error){
       console.log('productlist error', error)
     }finally{
       setLoading(false)
     }
-    // console.log(allProducts)
   }
 
   useEffect(() => {
    getAllProducts()
   }, [])
 
-  // useEffect(() => {
-  //   console.log(allProducts)
-  // }, [allProducts])
   
   const productHandler = ()=>{
     console.log('product clicked ')
@@ -43,7 +37,7 @@ export default  function ProductList() {
  
   return (
     <div className="flex flex-wrap justify-around">
-      {!loading && allProducts.length > 0 && allProducts.map((item : products) => {
+      {!loading && allProducts.length > 0 && allProducts.map((item : Products) => {
         // {console.log(item)}
         return (
           <div className="flex flex-col mt-2 ml-2 bg-blue-400 border border-solid border-black w-1/4 cursor-pointer" key={item._id} onClick={productHandler} >  
@@ -70,4 +64,6 @@ export default  function ProductList() {
   );
 }
 
+
+// const [allProducts, setAllProducts] = useState([])
 
