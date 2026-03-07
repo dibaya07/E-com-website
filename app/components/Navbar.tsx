@@ -1,21 +1,34 @@
 import React from 'react'
+import { FaBagShopping } from "react-icons/fa6";
+import { IoSearch } from "react-icons/io5";
+import { FaArrowRight } from "react-icons/fa";
+import { FaRegHeart } from "react-icons/fa";
+import { IoMdPerson } from "react-icons/io";
+import { IoMdCart } from "react-icons/io";
+
+
+
+
 
 export default function Navbar() {
   return (
-    <div className=' flex justify-between'>
-      <div className='flex justify-start bg-amber-300 w-1/4 gap-6'>
-      <span>lgo</span>
-      <span>Zentro</span>
+    <div className=' flex justify-between my-2 px-2 py-2'>
+      <div className='flex justify-start items-center pl-4  w-[12%] gap-3'>
+      <span className='text-md bg-(--blue) text-white flex justify-center items-center p-1 rounded-md'><FaBagShopping /></span>
+      <span className='font-semibold text-xl tracking-wider'>Zentro</span>
       </div>
-      <div className="searchBar bg-red-500 flex  justify-between flex-1">
-        <span>Srchlgo</span>
+      <div className="searchBar bg-(--gray) flex  justify-between flex-1 p-2 rounded-full mx-2">
+        <span className=' flex justify-center items-center mx-1.5 '><IoSearch /></span>
         <input type="text" placeholder='Search for products, Brands and more..' className='flex-1'/>
-        <button>sbmtLgo</button>
+        <button className='bg-(--blue) flex justify-center items-center text-white rounded-full p-2'><FaArrowRight /></button>
       </div>
-      <div className='bg-amber-300 w-1/4 flex justify-around'>
-      <span>wishlist</span>
-      <span>account</span>
-      <span>cart</span>
+      <div className=' w-[24%] flex justify-center items-center gap-10'>
+      <span className='text-lg'><FaRegHeart /></span>
+      <span className='flex gap-1.5'>
+        <span className='bg-(--gray) text-gray-700 flex justify-center items-center p-1 rounded-full'><IoMdPerson /></span>
+        <span>Hello,<span className='font-semibold'>User</span></span>
+      </span>
+      <span className='bg-(--gray) text-(--blue) text-xl p-2 rounded-full'><IoMdCart /></span>
       </div>
     </div>
   )

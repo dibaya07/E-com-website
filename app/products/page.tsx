@@ -1,22 +1,79 @@
-import React from 'react'
-import Filter from '../components/Filter'
-import ProductList from '../components/ProductList'
+"use client";
+import React from "react";
+import Filter from "../components/Filter";
+import ProductList from "../components/ProductList";
+import { useEffect, useState } from "react";
+import { useAppSelector, useAppDispatch } from "@/lib/hook";
+import { setProducts } from "../features/product/productSlice";
+import axios from "axios";
+import Pagination from "../components/Pagination";
+import { useRouter } from "next/navigation";
+// import navigation from
 
 export default function Products() {
+  const [totalProduct, setTotalProduct] = useState(0)
+  const [page, setPage] = useState(0)
+  const allProducts = useAppSelector((state) => state.allProducts);
+  const dispatch = useAppDispatch();
+  const [loading, setLoading] = useState(true);
+  const router = useRouter();
+  
+  const getAllProducts = async () => {
+    try {
+      const res = await axios.get(`/api/products?page=${page}`);
+      if(totalProduct == 0){
+        setTotalProduct(res.data.productCount)
+      }
+      dispatch(setProducts(res.data.allProducts));
+    } catch (error) {
+      console.log("productlist error", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+  
+  useEffect(() => {
+    getAllProducts();
+  }, [page]);
+
+
+  const handlePagination = (state : string)=>{
+    if(state == "next"){
+      setPage(prev=> prev + 1)
+    }else{
+      setPage(prev=> prev - 1)
+    }
+  }
+  
+  const productHandler = (id : number) => {
+    router.push(`/products/${id}`)
+    console.log(id)
+    console.log("product clicked ");
+  };
+  
   return (
-    <div className='bg-green-600'>
-      <div className='flex'>
-          <button>Home</button>
-          <button>Category name</button>
+    <div className="bg-(--gray) py-3 px-5 ">
+      <div className="flex gap-2">
+        <button className="text-sm">Home &gt;</button>
+        <button className="text-sm">Category name &gt;</button>
       </div>
-      <div>Category name</div>
-      <div className='flex'>
-       <Filter/>
-        <div className="right flex flex-col bg-red-400 flex-1">
-          <div>sort</div>
-          <ProductList/>
+      <div className="text-2xl font-medium my-4">Headphones</div>
+      <div className="flex gap-6 ">
+        <Filter />
+        <div className="right flex flex-col gap-4 flex-1 px-4 ">
+          <div className="bg-white py-2.5 px-4 rounded-xl mr-2">Sort</div>
+          <ProductList
+            productHandler={productHandler}
+            allProducts={allProducts}
+            loading={loading}
+            />
+            <Pagination handlePagination={handlePagination} page={page} totalProduct={totalProduct}/>
         </div>
       </div>
     </div>
-  )
+  );
 }
+
+
+
+   

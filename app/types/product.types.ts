@@ -13,3 +13,19 @@ export interface Products {
 export interface ProductState {
     allProducts : Products[]
 }
+
+export type productListProp = {
+    productHandler : (id: number) => void,
+    allProducts : Products[],
+    loading : boolean,
+}
+
+export type paginationProp = {
+    handlePagination : (state : string) => void
+    page: number,
+    totalProduct : number,
+}
+
+export type productIdParams = {
+    params : Promise<{id :string}>,
+}

@@ -1,61 +1,37 @@
 "use client"
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { Products } from "../types/product.types";
-import { useAppSelector, useAppDispatch} from "@/lib/hook";
-import { setProducts } from "../features/product/productSlice";
+import { productListProp, Products } from "../types/product.types";
+import { MdOutlineAddShoppingCart } from "react-icons/md";
+import { FaRegHeart } from "react-icons/fa";
 
 
 
-export default  function ProductList() {
-  
-  const allProducts = useAppSelector(state => state.allProducts)
-  const dispatch = useAppDispatch()
-  const [loading, setLoading] = useState(true)
-  const getAllProducts = async()=>{
-    try{
-    const res = await fetch('/api/products')
-    const data = await res.json()
-      dispatch(setProducts(data))
-    }catch(error){
-      console.log('productlist error', error)
-    }finally{
-      setLoading(false)
-    }
-  }
+export default  function ProductList({productHandler, allProducts, loading} : productListProp) {
 
-  useEffect(() => {
-   getAllProducts()
-  }, [])
+ if (loading) return<div>loading...</div>
 
-  
-  const productHandler = ()=>{
-    console.log('product clicked ')
-  }
-
-  if (loading) return<div>loading...</div>
- 
+//  { console.log((allProducts[0]._id))}
   return (
-    <div className="flex flex-wrap justify-around">
+    <div className="flex flex-wrap justify-start gap-x-16 gap-y-6 ">
       {!loading && allProducts.length > 0 && allProducts.map((item : Products) => {
-        // {console.log(item)}
         return (
-          <div className="flex flex-col mt-2 ml-2 bg-blue-400 border border-solid border-black w-1/4 cursor-pointer" key={item._id} onClick={productHandler} >  
+          <div className="flex flex-col bg-white w-[29%] cursor-pointer gap-1.5 p-4 rounded-xl" key={item._id} onClick={()=>productHandler(item._id)} >  
             
             
-            <span className="border border-solid border-black flex justify-center items-center">
-            <Image src='/productImg.jpeg' alt="product image" width={100} height={100} />
+            <span className=" flex justify-center items-center relative">
+              <span className="absolute top-0 right-0 bg-blue-200/20 p-2 rounded-full text-sm"><FaRegHeart /></span>
+            <Image src='/productImg.jpeg' alt="product image" width={150} height={100} />
             </span>
-            <span>{item.brand}</span>
-            <span>{item.title}</span>
-            <span>rating</span>
+            <span className="text-sm text-black/60">{item.brand}</span>
+            <span className="text-lg font-medium">{item.title}</span>
+            <span className="text-black/60">rating</span>
             
             <div className="flex justify-between">
               <div className="flex flex-col">
-                <span>{item.price - 100}</span>
-                <span className="line-through">{item.price} </span>
+                <span className="font-medium text-lg">&#8377;{item.price - 100}</span>
+                <span className="line-through text-black/60 text-xs">&#8377;{item.price} </span>
               </div>
-              <button className="bg-red-600">add to cart</button>
+              <button className="flex justify-center items-center text-(--blue) px-3 py-1 rounded-xl bg-blue-200/30 gap-2" onClick={(e)=>{e.stopPropagation()}}><MdOutlineAddShoppingCart /> Add</button>
             </div> 
           </div>
         );

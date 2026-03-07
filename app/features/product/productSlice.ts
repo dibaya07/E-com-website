@@ -11,7 +11,10 @@ export const productSlice = createSlice({
     reducers:{
         setProducts: (state, action : PayloadAction<Products[]>)=>{
             state.allProducts = action.payload;
-    }
+    },
+    // setPageNum : (state, action)=>{
+    //     state.page = action.payload
+    // }
 }
 })
 
