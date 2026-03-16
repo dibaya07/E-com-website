@@ -45,10 +45,10 @@ export default function Products() {
     }
   }
   
-  const productHandler = (id : number) => {
+  const productHandler = (id : string) => {
     router.push(`/products/${id}`)
-    console.log(id)
-    console.log("product clicked ");
+    // console.log(id)
+    // console.log("product clicked ");
   };
   
   return (

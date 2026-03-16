@@ -3,10 +3,32 @@ import Image from "next/image";
 import { productListProp, Products } from "../types/product.types";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { FaRegHeart } from "react-icons/fa";
+import { useEffect, useState } from "react";
+// import { useAppSelector } from "@/lib/hook";
 
 
 
 export default  function ProductList({productHandler, allProducts, loading} : productListProp) {
+const [cartProduct, setCartProduct] = useState<string[]>( [])
+
+
+  const handleAdd = ( id : string)=>{
+    console.log("clicked")
+    const alreadyIn = cartProduct?.includes(id)
+    if(!alreadyIn){
+      // console.log('not added')
+      setCartProduct((prev)=>[...prev, id])
+    }
+    
+  }
+  
+  useEffect(() => {
+    // setCartProduct((prev)=>[...prev , localStorage.getItem("products")])
+    localStorage.setItem("products",JSON.stringify(cartProduct))
+
+  }, [cartProduct])
+
+//     getCartData()
 
  if (loading) return<div>loading...</div>
 
@@ -31,7 +53,7 @@ export default  function ProductList({productHandler, allProducts, loading} : pr
                 <span className="font-medium text-lg">&#8377;{item.price - 100}</span>
                 <span className="line-through text-black/60 text-xs">&#8377;{item.price} </span>
               </div>
-              <button className="flex justify-center items-center text-(--blue) px-3 py-1 rounded-xl bg-blue-200/30 gap-2" onClick={(e)=>{e.stopPropagation()}}><MdOutlineAddShoppingCart /> Add</button>
+              <button className="flex justify-center items-center text-(--blue) px-3 py-1 rounded-xl bg-blue-200/30 gap-2" onClick={(e)=>{e.stopPropagation(); handleAdd(item._id ); }}><MdOutlineAddShoppingCart /> Add</button>
             </div> 
           </div>
         );
@@ -40,6 +62,4 @@ export default  function ProductList({productHandler, allProducts, loading} : pr
   );
 }
 
-
-// const [allProducts, setAllProducts] = useState([])
 

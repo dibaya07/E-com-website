@@ -1,5 +1,5 @@
 export interface Products {
-    _id: number,
+    _id: string,
     id: number,
     title: string,
     brand: string,
@@ -15,7 +15,7 @@ export interface ProductState {
 }
 
 export type productListProp = {
-    productHandler : (id: number) => void,
+    productHandler : (id: string) => void,
     allProducts : Products[],
     loading : boolean,
 }
@@ -29,3 +29,11 @@ export type paginationProp = {
 export type productIdParams = {
     params : Promise<{id :string}>,
 }
+
+export interface cartItems {
+    allCarts : string[],
+}
+
+// export type formProp = {
+//     handleSubmit : (formData : FormData)=> void
+// }

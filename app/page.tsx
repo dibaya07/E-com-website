@@ -12,7 +12,7 @@ import Subscribe from "./components/Subscribe";
 export default function Home() {
   return (
    <div className="bg-white">
-    <Navbar/>
+    {/* <Navbar/> */}
     <div className="bg-(--gray) py-2 px-5">
     <Banner/>
     <Category/>
@@ -21,7 +21,7 @@ export default function Home() {
     {/* <SubFooter/> */}
     {/* <Products/> */}
     </div>
-    <Footer/>
+    {/* <Footer/> */}
    </div>
   );
 }
