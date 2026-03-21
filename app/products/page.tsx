@@ -13,7 +13,7 @@ import { useRouter } from "next/navigation";
 export default function Products() {
   const [totalProduct, setTotalProduct] = useState(0)
   const [page, setPage] = useState(0)
-  const allProducts = useAppSelector((state) => state.allProducts);
+  const allProducts = useAppSelector((state) => state.productReducer.allProducts);
   const dispatch = useAppDispatch();
   const [loading, setLoading] = useState(true);
   const router = useRouter();
@@ -46,6 +46,7 @@ export default function Products() {
   }
   
   const productHandler = (id : string) => {
+    // console.log("i got called")
     router.push(`/products/${id}`)
     // console.log(id)
     // console.log("product clicked ");

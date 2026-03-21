@@ -30,9 +30,24 @@ export type productIdParams = {
     params : Promise<{id :string}>,
 }
 
-export interface cartItems {
-    allCarts : string[],
+export interface CartQty {
+ id : string,
+ qty : number
 }
+
+export interface CartItems  {
+    allCarts : CartQty[],
+}
+
+export type DisplayCartProp = {
+    handleQuantity : (id:string ,stock:number, status : string)=>void,
+     handleRemove : (id:string)=>void,
+      handleRouting : ()=>void,
+       cartItems : Products[],
+        allCarts : CartQty[]
+}
+
+// id:string ,stock:number, status : string
 
 // export type formProp = {
 //     handleSubmit : (formData : FormData)=> void

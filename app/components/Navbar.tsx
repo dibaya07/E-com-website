@@ -1,10 +1,11 @@
 import React from 'react'
-import { FaBagShopping } from "react-icons/fa6";
+// import { FaBagShopping } from "react-icons/fa6";
 import { IoSearch } from "react-icons/io5";
 import { FaArrowRight } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
 import { IoMdPerson } from "react-icons/io";
 import { IoMdCart } from "react-icons/io";
+import BrandLogo from './BrandLogo';
 
 
 
@@ -13,10 +14,11 @@ import { IoMdCart } from "react-icons/io";
 export default function Navbar() {
   return (
     <div className=' flex justify-between my-2 px-2 py-2'>
-      <div className='flex justify-start items-center pl-4  w-[12%] gap-3'>
+      {/* <div className='flex justify-start items-center pl-4  w-[12%] gap-3'>
       <span className='text-md bg-(--blue) text-white flex justify-center items-center p-1 rounded-md'><FaBagShopping /></span>
       <span className='font-semibold text-xl tracking-wider'>Zentro</span>
-      </div>
+      </div> */}
+      <BrandLogo/>
       <div className="searchBar bg-(--gray) flex  justify-between flex-1 p-2 rounded-full mx-2">
         <span className=' flex justify-center items-center mx-1.5 '><IoSearch /></span>
         <input type="text" placeholder='Search for products, Brands and more..' className='flex-1'/>
