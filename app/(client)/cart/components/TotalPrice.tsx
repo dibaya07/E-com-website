@@ -3,6 +3,8 @@ import { FaCcVisa } from "react-icons/fa6";
 import { LiaCcAmex } from "react-icons/lia";
 import { FaLock } from "react-icons/fa";
 import { TotalPriceProp } from "../../types/product.types";
+import Link from "next/link";
+import ProceedBtn from "./ClientComponents";
 
 export default function TotalPrice({PriceFormat, price, taxs} : TotalPriceProp) {
   return (
@@ -34,7 +36,8 @@ export default function TotalPrice({PriceFormat, price, taxs} : TotalPriceProp) 
                 </span>
               </div>
               <div className="proceed">
-                <button className="bg-blue-600 text-white w-full py-2 rounded-md">PROCEED TO CHECKOUT</button>
+                {/* <Link href={'/checkout'} className="bg-blue-600 text-white w-full py-2 rounded-md">PROCEED TO CHECKOUT</Link> */}
+                <ProceedBtn price={price} tax={taxs}/>
               </div>
               <div className="flex flex-col justify-center items-center gap-1">
                 <span className="text-sm text-gray-600 flex gap-1 items-center"><FaLock />Secure Enrypted Checkout</span>

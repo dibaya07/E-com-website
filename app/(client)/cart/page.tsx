@@ -78,6 +78,10 @@ export default function Page() {
   }
 
 
+  // const handleCheckOut = async ()=>{
+
+  // }
+
   return (
     <div className="px-5 py-2 bg-(--gray) pb-28">
       <div className="my-8">

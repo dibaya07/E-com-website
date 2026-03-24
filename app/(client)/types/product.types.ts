@@ -53,6 +53,17 @@ export type TotalPriceProp = {
       taxs : number
 }
 
+export type proceedBtnProp = {
+    price : number,
+    tax : number
+}
+
+// export type searchParamsProp = {
+//     searchParams : ()=>string,
+// }
+
+
+
 // id:string ,stock:number, status : string
 
 // export type formProp = {
