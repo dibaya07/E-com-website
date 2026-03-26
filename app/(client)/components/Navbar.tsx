@@ -15,7 +15,7 @@ export default function Navbar() {
   return (
     <div className=' flex justify-between my-2 px-2 py-2'>
       <Link href={'/'} className='flex justify-start items-center pl-4  w-[12%] gap-3 cursor-pointer'>
-      <span className='text-md bg-(--blue) text-white flex justify-center items-center p-1 rounded-md'><FaBagShopping /></span>
+      <span className=' bg-(--blue) text-white flex justify-center items-center p-1 rounded-md'><FaBagShopping /></span>
       <span className='font-semibold text-xl tracking-wider'>Zentro</span>
       </Link>
       {/* <BrandLogo/> */}

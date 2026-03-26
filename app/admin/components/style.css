@@ -1,0 +1,15 @@
+.sidebar_btns{
+    /* flex justify-start items-center gap-1 px-2 py-2 text-md hover:bg-blue-200/40 hover:text-(--blue) font-medium mx-2 rounded-md */
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 4px;
+    padding: 8px;
+    margin: 0 8px;
+    border-radius: 6px;
+}
+
+.sidebar_btns:hover{
+    background-color: #ddebfd;
+    color: #0046FF;
+}
