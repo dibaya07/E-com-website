@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 // import { Geist, Geist_Mono } from "next/font/google";
 // import "./globals.css";
 import '@/app/globals.css'
+import Sidebar from "./components/Sidebar";
 
 
 export const metadata: Metadata = {
@@ -19,7 +20,10 @@ export default function RootLayout({
     <html lang="en">
         <body>
             <Navbar/>
+            <div className="flex">
+          <Sidebar/>
          {children} 
+            </div>
         </body>
     </html>
   );
