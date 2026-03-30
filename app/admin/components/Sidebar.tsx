@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import { TbLayoutDashboardFilled } from "react-icons/tb";
 import { FaHeadphones } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
@@ -8,7 +8,8 @@ import { IoIosSettings } from "react-icons/io";
 import { MdOutlineSecurity } from "react-icons/md";
 import "./style.css";
 import { nanoid } from "@reduxjs/toolkit";
-import { useRouter } from "next/navigation";
+// import { redirect } from "next/navigation";
+import Link from "next/link";
 
 export default function Sidebar() {
   const sidebar_options = [
@@ -18,47 +19,40 @@ export default function Sidebar() {
     { icon: <IoPeople />, text: "Customers" },
     { icon: <IoMdAnalytics />, text: "Analytics" },
   ];
-  const router = useRouter();
-
-  const handle_sidebar_click = (text: string) => {
-    // console.log('clicked')
-    if (text == "Dashboard") {
-      router.push(`/admin`);
-    } else {
-      router.push(`/admin/${text}`);
-    }
-  };
 
   return (
     <div className="sidebar flex flex-col gap-2 w-[17%] border-r border-(--gray) h-[93vh] py-3">
       {sidebar_options.map((item) => {
         return (
-          <span
+          <Link
             className="sidebar_btns"
             key={nanoid()}
-            onClick={() => handle_sidebar_click(item.text)}
+            href={
+              item.text == "Dashboard"
+                ? "/admin"
+                : item.text == "Products"
+                  ? `/admin/${item.text}?page=0`
+                  : `/admin/${item.text}`
+            }
           >
             <span className="text-lg">{item.icon}</span>
             <span className="sidebar_btns_text">{item.text}</span>
-          </span>
+          </Link>
         );
       })}
       <span className="  px-2 py-2 text-xs mx-2">SETTINGS</span>
-      <span
-        className=" sidebar_btns"
-        onClick={() => router.push("/admin/Settings")}
-      >
+      <Link className=" sidebar_btns" href={"/admin/Settings"}>
         <span className="text-lg">
           <IoIosSettings />
         </span>
         <span className="sidebar_btns_text">General Settings</span>
-      </span>
-      <span className="sidebar_btns" onClick={() => router.push("/admin/Security")}>
+      </Link>
+      <Link className="sidebar_btns" href={"/admin/Security"}>
         <span className="text-lg">
           <MdOutlineSecurity />
         </span>
         <span className="sidebar_btns_text">Security</span>
-      </span>
+      </Link>
     </div>
     // </div>
   );
