@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
-import Navbar from "./components/Navbar";
-// import { Geist, Geist_Mono } from "next/font/google";
-// import "./globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
 import "@/app/globals.css";
-import Sidebar from "./components/Sidebar";
 
 export const metadata: Metadata = {
   title: "Zentro E-com website",
@@ -18,11 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Navbar />
-        <div className="flex">
-          <Sidebar />
-          {children}
-        </div>
+        <ClerkProvider>{children}</ClerkProvider>
       </body>
     </html>
   );
