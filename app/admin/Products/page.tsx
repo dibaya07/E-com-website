@@ -2,6 +2,8 @@ import Products_btns from "./component/Products_btns";
 import Products_list from "./component/Products_list";
 import Products_header from "./component/Products_header";
 import { Product_searchParams_Prop } from "../types/admin_products.types";
+// import { Product_searchParams_Prop } from "../../types/admin_products.types";
+// import { Product_searchParams_Prop } from "../types/admin_products.types";
 
 export default async function page({ searchParams } : Product_searchParams_Prop ) {
   const page = Number((await searchParams).page) || 0;

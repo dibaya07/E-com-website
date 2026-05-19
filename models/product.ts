@@ -9,6 +9,11 @@ const productSchema = new mongoose.Schema({
     stock: Number,
     rating: Number,
     description: String,
+    owner : String,
+    role : {
+        type : String,
+        default : "user"
+    }
 },{timestamps:true})
 
 export const Products = mongoose.models.Product || mongoose.model('Product', productSchema)

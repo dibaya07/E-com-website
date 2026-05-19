@@ -3,7 +3,7 @@ import { FaCcVisa } from "react-icons/fa6";
 import { LiaCcAmex } from "react-icons/lia";
 import { FaLock } from "react-icons/fa";
 import { TotalPriceProp } from "../../types/product.types";
-import Link from "next/link";
+// import Link from "next/link";
 import ProceedBtn from "./ClientComponents";
 
 export default function TotalPrice({PriceFormat, price, taxs} : TotalPriceProp) {

@@ -8,23 +8,30 @@ export interface Products {
     price: number,
     rating: number,
     stock: number,
+    owner : string,
+    role : string
 }
 
 export interface ProductState {
     allProducts : Products[]
 }
 
-export type productListProp = {
-    productHandler : (id: string) => void,
-    allProducts : Products[],
-    loading : boolean,
-}
+// export type productListProp = {
+//     // productHandler : (id: string) => void,
+//     allProducts : Products[],
+//     loading : boolean,
+// }
 
 export type paginationProp = {
-    handlePagination : (state : string) => void
+    // setPage : (cb : (num : number)=>number)  => void,
+    // handlePagination : (state : string)=> void,
     page: number,
     totalProduct : number,
 }
+
+// export type productPageCountProp = {
+
+// }
 
 export type productIdParams = {
     params : Promise<{id :string}>,
@@ -56,6 +63,11 @@ export type TotalPriceProp = {
 export type proceedBtnProp = {
     price : number,
     tax : number
+}
+
+
+export type Products_searchParams_Prop = {
+    searchParams : {page? : string }
 }
 
 // export type searchParamsProp = {

@@ -1,9 +1,10 @@
 import React from "react";
 import { GoDotFill } from "react-icons/go";
-// import { FaArrowRight } from "react-icons/fa6";
+import { FaArrowRight } from "react-icons/fa6";
 
 import Image from "next/image";
-import ShopBtn from "./ShopBtn";
+// import ShopBtn from "./ShopBtn";
+import Link from "next/link";
 
 export default function Banner() {
   return (
@@ -24,7 +25,8 @@ export default function Banner() {
         </p>
         <div className="flex gap-4 py-6">
           {/* <button className="px-6 py-3 bg-(--blue) flex justify-center items-center gap-1 text-white font-semibold rounded-xl">Shop Now <FaArrowRight /></button> */}
-          <ShopBtn/>
+          {/* <ShopBtn/>  onClick={handleClick}  */}
+          <Link href={"/products?page=0"} className="px-6 py-3 bg-(--blue) flex justify-center items-center gap-1 text-white font-semibold rounded-xl" >Shop Now <FaArrowRight /></Link>
           <button className="px-6 py-3 text-white font-medium rounded-xl border border-white/50">View Catalog</button>
         </div>
       </div>

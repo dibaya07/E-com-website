@@ -1,4 +1,4 @@
-"use client"
+"use client";
 // import { setCarts } from '@/app/features/cart/cartSlice'
 import { useAppDispatch, useAppSelector } from '@/lib/hook'
 import  { useEffect } from 'react'
@@ -10,11 +10,13 @@ export default function InitCart() {
 
     useEffect(() => {
         const data = JSON.parse(localStorage.getItem("products") || "[]")
+        // console.log("hello initCart", data)
         dispatch(setCarts(data))
     }, [])
   
     useEffect(() => {
     if(allCarts.length > 0){
+      // console.log("memory leak ",allCarts)
       localStorage.setItem("products",JSON.stringify(allCarts))
     }else{
       localStorage.removeItem("products")

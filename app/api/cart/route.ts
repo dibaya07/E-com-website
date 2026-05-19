@@ -1,11 +1,12 @@
+// import connected from "@/config/dbConnect";
 import { Products } from "@/models/product";
 import { NextRequest } from "next/server";
 
 export async function POST  (req : NextRequest){
     try{
+        // await connected()
         const data = await req.json()
         // console.log(data)
-        // console.log('hello')
         const res = await Products.find({_id:{$in : data.allCarts}})
         // console.log(res)
         return Response.json({message : "get call", allCarts : res})

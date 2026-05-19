@@ -5,7 +5,7 @@ import StoreProvider from "./storeProvider";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import InitCart from "./cart/components/InitCart";
-import { ClerkProvider } from "@clerk/nextjs";
+// import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata: Metadata = {
   title: "Zentro E-com website",
@@ -18,21 +18,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-      // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    // <html>
+    //   <body
+    //   // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+    //   >
+          // <ClerkProvider>
         <StoreProvider>
-          <ClerkProvider>
             <Navbar />
             <InitCart />
             {children}
             <Footer />
-          </ClerkProvider>
         </StoreProvider>
-      </body>
-    </html>
-  );
-}
-
-// {children}
+    //  </ClerkProvider> 
+    //   </body>
+    // </html>
+        );
+      }
+      
+      // {children}
+      

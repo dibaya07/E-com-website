@@ -7,9 +7,12 @@ import { IoMdCart } from "react-icons/io";
 import Link from "next/link";
 import CartIItemCount from "../cart/components/CartIItemCount";
 import { Show, UserButton } from "@clerk/nextjs";
+import AdminBtn from "./AdminBtn";
+// import { auth, currentUser } from '@clerk/nextjs/server'
+
+export default  function Navbar() {
 
 
-export default function Navbar() {
   return (
     <div className=" flex justify-between my-2 px-2 py-2">
       <Link
@@ -36,13 +39,14 @@ export default function Navbar() {
         </button>
       </div>
       <div className=" w-[24%] flex justify-center items-center gap-10">
+      <AdminBtn/>
         <span className="text-lg">
           <FaRegHeart />
         </span>
-        <span className="flex gap-1.5">
+        <span className="flex gap-1.5 justify-center items-cente p-1 bg-(--gray) rounded-lg">
           <Show when="signed-out">
-            <Link href={"/sign-in"}>Sign In</Link>
-            <Link href={"/sign-up"}>Sign Up</Link>
+            <Link href={"/sign-in"} className=" hover:bg-blue-800 hover:text-white px-2 py-1 hover:rounded-lg border-white border-r-2">Sign In</Link>
+            <Link href={"/sign-up"} className=" hover:bg-blue-800 hover:text-white px-2 py-1 hover:rounded-lg">Sign Up</Link>
           </Show>
           <Show when="signed-in">
             <UserButton />

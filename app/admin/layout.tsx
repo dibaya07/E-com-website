@@ -4,26 +4,32 @@ import Navbar from "./components/Navbar";
 // import "./globals.css";
 import "@/app/globals.css";
 import Sidebar from "./components/Sidebar";
+// import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata: Metadata = {
   title: "Zentro E-com website",
   description: "A e-commerce website with sample products",
 };
 
-export default function RootLayout({
+export default function AdminLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
-        <Navbar />
-        <div className="flex">
-          <Sidebar />
-          {children}
-        </div>
-      </body>
-    </html>
+    // <html lang="en">
+    //   <body>
+    <>
+      <Navbar />
+      <div className="flex">
+        <Sidebar />
+        {children}
+      </div>
+    </>
+    //   </body>
+    // </html>
   );
 }
+
+//  <ClerkProvider>
+// </ClerkProvider>

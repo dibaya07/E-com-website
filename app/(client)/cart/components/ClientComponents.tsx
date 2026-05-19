@@ -12,6 +12,6 @@ const handleProceed = async(price : number, tax : number)=>{
 }
 export default function ProceedBtn ({price, tax} : proceedBtnProp){
     return(
-        <button onClick={()=>handleProceed(price,tax)} className="bg-blue-600 text-white w-full py-2 rounded-md">PROCEED TO CHECKOUT</button>
+        <button onClick={()=>handleProceed(price,tax)} className="bg-blue-600 text-white w-full py-2 rounded-md disabled:bg-blue-400 disabled:cursor-not-allowed" disabled={price <= 0}>PROCEED TO CHECKOUT</button>
     )
 }

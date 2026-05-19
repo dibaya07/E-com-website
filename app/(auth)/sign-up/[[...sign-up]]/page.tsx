@@ -1,9 +1,12 @@
 import { SignUp } from "@clerk/nextjs";
+import Link from "next/link";
 
 export default function Page() {
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex flex-col gap-3 justify-center items-center h-screen">
       <SignUp />
+       <Link href={"/"} className="bg-(--gray) hover:bg-blue-800 hover:text-white px-2 py-2 rounded-lg border-white border-r-2 ">GO BACK</Link>
     </div>
   );
 }
+
