@@ -9,7 +9,6 @@ export default async function Products({ searchParams } : Products_searchParams_
   // const res = await fetch(`http://localhost:3000/api/products?page=${page}`);
   const res = await fetch(`${process.env.APP_URL}/api/products?page=${page}`);
   const allProducts = await res.json();
-  // console.log(allProducts)
 
   return (
     <div className="bg-(--gray) py-3 px-5 ">
