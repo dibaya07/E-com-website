@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
-import { paginationProp } from "../../types/admin_products.types";
+import { paginationProp } from "@/app/admin/types/admin_products.types";
 // import { paginationProp } from "../types/admin_products.types";
 
 export default function Pagination({

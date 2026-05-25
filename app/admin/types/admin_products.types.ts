@@ -25,7 +25,7 @@ export type product_detailsProp = {
     totalProduct : number,
     currentPage : number,
 }
-
+ 
 export type paginationProp = {
     totalProduct : number, 
     // handlePagination : (state : string)=> void,
