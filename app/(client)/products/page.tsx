@@ -6,7 +6,8 @@ import ProductList from "./components/ProductList";
 export default async function Products({ searchParams } : Products_searchParams_Prop) {
   const page = Number((await searchParams).page) || 0;
 
-  const res = await fetch(`http://localhost:3000/api/products?page=${page}`);
+  // const res = await fetch(`http://localhost:3000/api/products?page=${page}`);
+  const res = await fetch(`${process.env.APP_URL}/api/products?page=${page}`);
   const allProducts = await res.json();
 
   return (

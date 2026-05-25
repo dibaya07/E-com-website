@@ -9,8 +9,11 @@ export default async function page({ searchParams } : Product_searchParams_Prop 
   const page = Number((await searchParams).page) || 0;
 
   const getProducts = async () => {
+    // const res = await fetch(
+    //   `http://localhost:3000/api/admin/products?page=${page}`,
+    // );
     const res = await fetch(
-      `http://localhost:3000/api/admin/products?page=${page}`,
+      `${process.env.APP_URL}/api/admin/products?page=${page}`,
     );
     const result = await res.json();
     return result;
