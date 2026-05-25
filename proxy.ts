@@ -6,7 +6,7 @@ const isAdminRoute = createRouteMatcher(['/admin(.*)'])
 
 export default clerkMiddleware(async(auth, req)=>{
   const { sessionClaims} = await auth();
-  const role =  (sessionClaims?.metadata as { role?: string } | undefined )?.role
+  const role =  (sessionClaims?.metadata as { role?: string } | undefined )?.role //here { role?: string } <- this means  metadata may contain a role property , and if sessoinClaims become missing them it will return undefined instead of crashing .
   
   if (isAdminRoute(req) && role !== 'admin') {
     const url = new URL('/notFound', req.url)
