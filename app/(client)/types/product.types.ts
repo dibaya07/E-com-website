@@ -77,9 +77,12 @@ export type ProductListProp ={
     productCount : number
    }
 }
-// export type searchParamsProp = {
-//     searchParams : ()=>string,
-// }
+
+export type successSearchParamsProp = {
+    searchParams : {
+        session_id? : string
+    },
+}
 
 
 

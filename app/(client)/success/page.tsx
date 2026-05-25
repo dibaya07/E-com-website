@@ -1,8 +1,9 @@
 
 import { redirect } from 'next/navigation'
 import { stripe } from '@/lib/stripe'
+import { successSearchParamsProp } from '../types/product.types'
 
-export default async function page({ searchParams } ) {
+export default async function page({ searchParams } : successSearchParamsProp ) {
   const { session_id } = await searchParams
 
   if (!session_id)
