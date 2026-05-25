@@ -6,7 +6,9 @@ const isAdminRoute = createRouteMatcher(['/admin(.*)'])
 
 export default clerkMiddleware(async(auth, req)=>{
   const { sessionClaims} = await auth();
-  if (isAdminRoute(req) && sessionClaims?.metadata?.role !== 'admin') {
+  const role =  (sessionClaims?.metadata as { role?: string }).role
+  
+  if (isAdminRoute(req) && role !== 'admin') {
     const url = new URL('/notFound', req.url)
     return NextResponse.redirect(url)
   }
