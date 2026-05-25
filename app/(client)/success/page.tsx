@@ -12,10 +12,12 @@ export default async function page({ searchParams } : successSearchParamsProp ) 
   // console.log(await stripe.checkout.sessions)
   const {
     status,
-    customer_details: { email: customerEmail}
+    customer_details //: { email: customerEmail}
   } = await stripe.checkout.sessions.retrieve(session_id, {
     expand: ['line_items', 'payment_intent']
   })
+
+  const customerEmail = customer_details?.email
 
   if (status === 'open') {
     return redirect('/')
