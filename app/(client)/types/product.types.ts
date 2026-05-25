@@ -70,6 +70,13 @@ export type Products_searchParams_Prop = {
     searchParams : {page? : string }
 }
 
+
+export type ProductListProp ={
+   allListedProducts : {
+     allProducts : Products[],
+    productCount : number
+   }
+}
 // export type searchParamsProp = {
 //     searchParams : ()=>string,
 // }

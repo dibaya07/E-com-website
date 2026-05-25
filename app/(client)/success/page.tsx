@@ -7,7 +7,7 @@ export default async function page({ searchParams } ) {
 
   if (!session_id)
     throw new Error('Please provide a valid session_id (`cs_test_...`)')
-
+ 
   // console.log(await stripe.checkout.sessions)
   const {
     status,

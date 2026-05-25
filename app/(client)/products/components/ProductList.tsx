@@ -5,19 +5,19 @@ import { FaRegHeart } from "react-icons/fa";
 import { useAppSelector } from "@/lib/hook";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/navigation";
-import { Products } from "../../types/product.types";
+import { ProductListProp, Products } from "../../types/product.types";
 import { setCarts } from "../../features/cart/cartSlice";
 // import Pagination from "./Pagination";
 // import axios from "axios";
 import { useEffect, useState } from "react";
 // import { setProducts } from "../../features/product/productSlice";
-
-export default function ProductList({ allListedProducts }) {
+ 
+export default function ProductList({ allListedProducts } : ProductListProp) {
   const allCarts = useAppSelector((state) => state.cartReducer.allCarts);
   const dispatch = useDispatch();
   const router = useRouter();
   const [totalProduct, setTotalProduct] = useState(0);
-  const [allProducts, setAllProducts] = useState([])
+  const [allProducts, setAllProducts] = useState<Products[]>([])
   // const [page, setPage] = useState<number>(0)
   // const allProducts = useAppSelector(
   //   (state) => state.productReducer.allProducts,
