@@ -1,7 +1,6 @@
 import connected from "@/config/dbConnect"
 import { Products } from "@/models/product"
 import { NextRequest, NextResponse } from "next/server"
-// import { sampleProducts } from "@/data/data"
 
 
 export async function GET(request: NextRequest) {
@@ -16,6 +15,26 @@ export async function GET(request: NextRequest) {
         console.log('product route error', error)
     }
 }
+
+
+// export async function PUT ( ){
+//     try{
+//         await connected()
+//         await Products.updateMany(
+//             {},
+//             { 
+//                 $unset:{
+//                     owner:"",
+//                     role:""
+//                 }
+//             }
+//         );
+//         console.log("Successfully updated")
+//         return NextResponse.json({message:"Successfully Updated"})
+//     }catch(error){
+//         console.log("error" , error)
+//     }
+// }
 
 
 // export async function POST() {

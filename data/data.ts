@@ -1,5 +1,5 @@
 export const sampleProducts = [
-  {
+  { 
     "id": 1,
     "title": "Marshall Noise Cancelling Headphones Model 1",
     "brand": "Marshall",
