@@ -7,8 +7,11 @@ export async function GET(request: NextRequest) {
     try {
         await connected()
         const page = Number(request.nextUrl.searchParams.get("page"));
-        const allProducts = await Products.find().skip(page * 6).limit(6);
+        const allProducts = await Products.find({status : "Published"}).sort({_id : -1}).skip(page * 6).limit(6);
         const productCount = await Products.countDocuments();
+
+        // const itemswithoutstatus = 
+        // console.log(await Products.find({status : {$exists: true}}))
         return NextResponse.json({ allProducts, productCount })
 
     } catch (error) {
@@ -17,15 +20,16 @@ export async function GET(request: NextRequest) {
 }
 
 
+
+
 // export async function PUT ( ){
 //     try{
 //         await connected()
 //         await Products.updateMany(
-//             {},
+//             {status : {$exists: false}},
 //             { 
-//                 $unset:{
-//                     owner:"",
-//                     role:""
+//                 $set:{
+//                     status: "Published"
 //                 }
 //             }
 //         );

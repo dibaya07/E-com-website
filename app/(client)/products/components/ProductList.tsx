@@ -70,6 +70,7 @@ export default function ProductList({ allListedProducts } : ProductListProp) {
           allProducts.length > 0 &&
           allProducts.map((item: Products) => {
             const isInCart = allCarts.map((data) => data.id).includes(item._id);
+            // console.log(item)
             return (
               <div
                 className="flex flex-col bg-white w-[29%] cursor-pointer gap-1.5 p-4 rounded-xl"
@@ -80,12 +81,32 @@ export default function ProductList({ allListedProducts } : ProductListProp) {
                   <span className="absolute top-0 right-0 bg-blue-200/20 p-2 rounded-full text-sm">
                     <FaRegHeart />
                   </span>
-                  <Image
+                   {item.images.length > 0 ? (
+                    // item.images.map((img,index) => (
+                      <Image
+                        // key={index}
+                        src={item.images[0]}
+                        alt="Product img"
+                        width={100}
+                        height={100}
+                        className="rounded-md size-50 border-black border bg-cover"
+                      />
+                    // ))
+                  ) : (
+                    <Image
+                      src="/productImg.jpeg"
+                      alt="Product img"
+                      width={150}
+                      height={100}
+                      className="rounded-md"
+                    />
+                  )}
+                  {/* <Image
                     src="/productImg.jpeg"
                     alt="product image"
                     width={150}
                     height={100}
-                  />
+                  /> */}
                 </span>
                 <span className="text-sm text-black/60">{item.brand}</span>
                 <span className="text-lg font-medium">{item.title}</span>

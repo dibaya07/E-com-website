@@ -1,5 +1,7 @@
 import { IoMdSearch } from "react-icons/io";
 import { FaPlus } from "react-icons/fa6";
+import Link from "next/link";
+// import Link from "next/link";
 
 export default function Products_btns() {
   return (
@@ -16,7 +18,7 @@ export default function Products_btns() {
               <option value="All categories">Low stock</option>
             </select>
             {/* <button>status</button> */}
-            <button className="bg-blue-600/90 text-white px-2 py-1.5 flex gap-1.5 justify-center items-center rounded-md hover:bg-blue-600"><FaPlus />Add New Product</button> 
+            <Link href={'/admin/Products/AddProducts'} className="bg-blue-600/90 text-white px-2 py-1.5 flex gap-1.5 justify-center items-center rounded-md hover:bg-blue-600"><FaPlus />Add New Product</Link> 
           </span>
         </div>
   )

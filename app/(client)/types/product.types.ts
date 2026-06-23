@@ -8,8 +8,7 @@ export interface Products {
     price: number,
     rating: number,
     stock: number,
-    owner : string,
-    role : string
+    images:[string]
 }
 
 export interface ProductState {

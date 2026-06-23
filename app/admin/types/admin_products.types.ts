@@ -1,4 +1,5 @@
 
+
 export interface Product {
     _id: number,
     id: number,
@@ -9,6 +10,8 @@ export interface Product {
     stock: number,
     rating: number,
     description: string,
+    status : string,
+    images: string[]
 }
 
 
@@ -30,4 +33,25 @@ export type paginationProp = {
     totalProduct : number, 
     // handlePagination : (state : string)=> void,
     currentPage : number
+}
+
+
+export type productFormData = {
+    title: string,
+    brand: string,
+      description: string,
+      price: number,
+
+      stock: number,
+      category: string,
+    //   tages: string,
+      status: string,
+      image: File[]
+}
+
+
+export type PreviewImgProps = {
+    fileDetails : File,
+    handleRemove : (index : number)=> void,
+    index : number
 }

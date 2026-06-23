@@ -1,11 +1,15 @@
 import Image from "next/image";
 import { MdEdit } from "react-icons/md";
-import { MdDelete } from "react-icons/md";
+// import { MdDelete } from "react-icons/md";
 import { Product, product_detailsProp } from "../../types/admin_products.types";
 import Pagination from "../../components/Pagination";
+import { DeleteProduct } from "./Buttons";
 
-export default function Products_details({ allProducts ,totalProduct, currentPage} :  product_detailsProp) {
-
+export default function Products_details({
+  allProducts,
+  totalProduct,
+  currentPage,
+}: product_detailsProp) {
   return (
     <>
       <ul className="flex  flex-col border-t border-gray-400/60 h-[56vh] overflow-hidden">
@@ -18,13 +22,43 @@ export default function Products_details({ allProducts ,totalProduct, currentPag
               >
                 <input type="checkbox" />
                 <span className="flex gap-1.5 w-[20%]  overflow-hidden justify-start items-center">
-                  <Image
-                    src={"/productImg.jpeg"}
-                    alt="Product img"
-                    width={40}
-                    height={10}
-                    className="rounded-md"
-                  />
+                  {item.images.length > 0 ? (
+                      <Image
+                        src={item.images[0]}
+                        alt="Product img"
+                        width={40}
+                        height={10}
+                        className="rounded-md bg-cover size-10"
+                      />
+                  ) : (
+                    <Image
+                      src="/productImg.jpeg"
+                      alt="Product img"
+                      width={40}
+                      height={10}
+                      className="rounded-md"
+                    />
+                  )}
+                  {/* {item.images.length > 0 ? (
+                    item.images.map((img,index) => (
+                      <Image
+                        key={index}
+                        src={img}
+                        alt="Product img"
+                        width={40}
+                        height={10}
+                        className="rounded-md"
+                      />
+                    ))
+                  ) : (
+                    <Image
+                      src="/productImg.jpeg"
+                      alt="Product img"
+                      width={40}
+                      height={10}
+                      className="rounded-md"
+                    />
+                  )} */}
                   <span className="flex flex-col">
                     <span className="text-sm  whitespace-nowrap  text-ellipsis overflow-hidden w-[53%]">
                       {item.title}
@@ -37,24 +71,26 @@ export default function Products_details({ allProducts ,totalProduct, currentPag
                 <span className="w-[10%] text-start">{item.category}</span>
                 <span className="w-[10%] text-start">{item.price}</span>
                 <span className="w-[10%] text-start">{item.stock}</span>
-                <span className="w-[10%] text-start">status</span>
+                <span
+                  className={`w-[10%] text-start ${item.status == "Published" ? "text-green-500" : "text-red-600"}`}
+                >
+                  {item.status == "Published" ? "Active" : "Deactive"}
+                </span>
                 <span className="flex gap-3 justify-center items-center text-xl w-[10%]">
                   <span className="hover:bg-blue-200 hover:text-blue-600 p-1 rounded-md">
                     <MdEdit />
                   </span>
-                  <span className="hover:bg-red-200 hover:text-red-600 p-1 rounded-md">
+                  <DeleteProduct id={item._id} />
+                  {/* <span className="hover:bg-red-200 hover:text-red-600 p-1 rounded-md">
                     <MdDelete />
-                  </span>
+                  </span> */}
                 </span>
               </li>
             );
           })}
       </ul>
 
-      <Pagination
-        totalProduct={totalProduct}
-        currentPage= {currentPage}
-      />
+      <Pagination totalProduct={totalProduct} currentPage={currentPage} />
     </>
   );
 }

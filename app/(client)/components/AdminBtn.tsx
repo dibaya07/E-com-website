@@ -8,7 +8,7 @@ export default function AdminBtn() {
 
   return (
     <>
-    {isSignedIn &&  user?.publicMetadata?.role === "admin" && <Link href={"/admin"} className=" text-lg hover:font-medium hover:bg-(--gray) px-2 py-1 hover:rounded-lg">Dashboard</Link>}
+    {isSignedIn &&  user?.publicMetadata?.role === "admin" && <Link href={"/admin"} className=" text-base hover:font-medium hover:bg-(--gray) px-2 py-1 hover:rounded-lg">Dashboard</Link>}
     </>
   )
 }
