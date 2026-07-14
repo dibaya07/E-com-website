@@ -5,12 +5,12 @@ import Link from "next/link";
 
 export default function Products_btns() {
   return (
-   <div className='flex gap-3 bg-white p-3 text-[15px] justify-between rounded-md'>
-          <span className='bg-gray-400/20 border border-gray-400/60 p-1 flex gap-2 justify-start items-center w-2/5 rounded-md'>
+   <div className='flex flex-col sm:flex-row gap-3 bg-white p-3 text-[15px] justify-between rounded-md'>
+          <span className='bg-gray-400/20 border border-gray-400/60 p-1 hidden sm:flex gap-2 justify-start items-center w-2/5 rounded-md'>
               <IoMdSearch />
             <input type="text" placeholder='Search products' className="outline-0 flex-1 "/>
           </span>
-          <span className="flex gap-8 px-2 flex-1 justify-end">
+          <span className="flex gap-8 px-2 flex-1 justify-start sm:justify-end">
             <select className="border border-gray-400/60 rounded-md"> 
               <option value="All categories">Status : Any</option>
               <option value="All categories">Active</option>

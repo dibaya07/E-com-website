@@ -3,7 +3,7 @@ import { FaRupeeSign } from "react-icons/fa";
 
 export default function DashBoard() {
   return (
-    <div className="flex flex-col bg-(--gray) flex-1 px-8 py-4">
+    <div className="flex flex-col bg-(--gray) flex-1 px-2 sm:px-8 py-4">
       <div className="flex flex-col gap-1 mb-2">
         <span className="text-2xl font-medium tracking-wide">
           Dashboard Overview
@@ -13,7 +13,7 @@ export default function DashBoard() {
         </span>
       </div>
 
-      <div className="total_sales flex gap-3 my-6">
+      <div className="total_sales flex sm:flex-row flex-col gap-3 my-6">
         <div className="bg-white flex gap-8 px-4 py-4 justify-start rounded-md">
           <div className="flex flex-col ">
             <span className="text-sm text-gray-800">Total sales</span>
@@ -41,11 +41,11 @@ export default function DashBoard() {
         </div>
       </div>
 
-      <div className="sales_overview flex gap-3">
-        <div className="bg-white w-2/3 h-[60vh] flex flex-col gap-2 px-4 py-6 rounded-md">
+      <div className="sales_overview flex lg:flex-row flex-col gap-3">
+        <div className="bg-white w-full sm:w-2/3 sm:h-[60vh] flex flex-col gap-2 px-4 py-6 rounded-md">
           <div className=" flex justify-between items-center">
             <span className="font-medium">Sales overview</span>
-            <span className="bg-gray-300/50 flex gap-2 p-1 justify-center items-center rounded-lg">
+            <span className="bg-gray-300/50 hidden sm:flex gap-2 p-1 justify-center items-center rounded-lg">
               <span className="bg-white px-3 py-1  text-black text-sm rounded-lg">
                 7Days
               </span>
@@ -61,10 +61,9 @@ export default function DashBoard() {
             <span>graph</span>
           </div>
         </div>
+
         <div className="bg-white flex-1 px-4 py-6 rounded-md">
           <div className="text-lg font-medium pb-4">Top Selling Products</div>
-
-
           <div className="flex flex-col gap-2 h-[47vh] overflow-y-scroll hide-scrollbar">
 
           <div className="flex justify-between ">
@@ -86,20 +85,14 @@ export default function DashBoard() {
               <span className="text-sm">sale count</span>
             </div>
           </div>
-
-        
-
-
           </div>
-
-
-
         </div>
       </div>
+
       <div className="recent_orders mt-5 px-4 py-6 bg-white rounded-md">
         <div className=" py-2 text-lg font-medium">Recent orders</div>
         <div>
-          <div className="text-sm bg-blue-300/20 flex justify-between py-3">
+          <div className="text-sm bg-blue-300/20 flex lg:flex-row flex-col justify-between py-3">
             <span>ORDER ID</span>
             <span>CUSTOMER</span>
             <span>PRODUCT</span>
@@ -108,7 +101,7 @@ export default function DashBoard() {
             <span>STATUS</span>
             <span>ACTION</span>
           </div>
-          <div className="text-sm flex justify-between py-3">
+          <div className="text-sm flex lg:flex-row flex-col justify-between py-3">
             <span>product details</span>
             <span>product details</span>
             <span>product details</span>

@@ -11,13 +11,13 @@ export default function Products_details({
   currentPage,
 }: product_detailsProp) {
   return (
-    <>
-      <ul className="flex  flex-col border-t border-gray-400/60 h-[56vh] overflow-hidden">
+    <div className="overflow-hidden w-full">
+        <ul className="flex flex-row sm:flex-col border-t flex-1 overflow-x-scroll border-gray-400/60 sm:h-[56vh] overflow-hidden ">
         {allProducts?.length > 0 &&
           allProducts?.map((item: Product) => {
             return (
               <li
-                className="hover:bg-blue-200/30 flex gap-5 px-3  py-2 items-center justify-between border-b border-gray-400/60"
+                className="hover:bg-blue-200/30 flex flex-col sm:flex-row gap-5 px-3  py-2 items-center justify-between border-b border-gray-400/60"
                 key={item._id}
               >
                 <input type="checkbox" />
@@ -91,6 +91,6 @@ export default function Products_details({
       </ul>
 
       <Pagination totalProduct={totalProduct} currentPage={currentPage} />
-    </>
+    </div>
   );
 }

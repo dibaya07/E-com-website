@@ -4,7 +4,13 @@ import { NextResponse } from 'next/server';
 
 const isAdminRoute = createRouteMatcher(['/admin(.*)'])
 
+
 export default clerkMiddleware(async(auth, req)=>{
+
+  if (!isAdminRoute(req)) {
+    return;
+  }
+
   const { sessionClaims} = await auth();
   const role =  (sessionClaims?.metadata as { role?: string } | undefined )?.role //here { role?: string } <- this means  metadata may contain a role property , and if sessoinClaims become missing them it will return undefined instead of crashing .
   
@@ -24,3 +30,20 @@ export const config = {
     '/__clerk/(.*)',
   ],
 }
+
+// export default clerkMiddleware(async (auth, req) => {
+//   if (!isAdminRoute(req)) {
+//     return;
+//   }
+
+//   const { sessionClaims } = await auth();
+
+//   const role =
+//     (sessionClaims?.metadata as { role?: string })?.role;
+
+//   if (role !== "admin") {
+//     return NextResponse.redirect(
+//       new URL("/notFound", req.url)
+//     );
+//   }
+// });

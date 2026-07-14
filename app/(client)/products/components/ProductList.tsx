@@ -10,6 +10,7 @@ import { setCarts } from "../../features/cart/cartSlice";
 // import Pagination from "./Pagination";
 // import axios from "axios";
 import { useEffect, useState } from "react";
+import { BsFillCartCheckFill } from "react-icons/bs";
 // import { setProducts } from "../../features/product/productSlice";
  
 export default function ProductList({ allListedProducts } : ProductListProp) {
@@ -65,7 +66,7 @@ export default function ProductList({ allListedProducts } : ProductListProp) {
 
   return (
     <>
-      <div className="flex flex-wrap justify-start gap-x-16 gap-y-6 ">
+      <div className="flex flex-wrap justify-start gap-x-2 sm:gap-x-16 lg:gap-x-10 xl:gap-x-16 gap-y-6 ">
         {!loading &&
           allProducts.length > 0 &&
           allProducts.map((item: Products) => {
@@ -73,12 +74,12 @@ export default function ProductList({ allListedProducts } : ProductListProp) {
             // console.log(item)
             return (
               <div
-                className="flex flex-col bg-white w-[29%] cursor-pointer gap-1.5 p-4 rounded-xl"
+                className="flex flex-col bg-white w-[48%] md:w-[43%] lg:w-[29%] cursor-pointer  sm:gap-1.5 p-4 rounded-xl relative sm:static"
                 key={item._id}
                 onClick={() => productHandler(item._id)}
               >
-                <span className=" flex justify-center items-center relative">
-                  <span className="absolute top-0 right-0 bg-blue-200/20 p-2 rounded-full text-sm">
+                <span className=" flex justify-center items-center sm:relative">
+                  <span className="absolute top-0.5 right-0.5 bg-blue-200/40 sm:bg-blue-200/20 p-2 rounded-full text-xs sm:text-sm">
                     <FaRegHeart />
                   </span>
                    {item.images.length > 0 ? (
@@ -89,16 +90,16 @@ export default function ProductList({ allListedProducts } : ProductListProp) {
                         alt="Product img"
                         width={100}
                         height={100}
-                        className="rounded-md size-50 border-black border bg-cover"
+                        className="rounded-md size-24 sm:size-50 border-black border bg-cover"
                       />
                     // ))
                   ) : (
                     <Image
                       src="/productImg.jpeg"
                       alt="Product img"
-                      width={150}
+                      width={100}
                       height={100}
-                      className="rounded-md"
+                      className="rounded-md size-24 sm:size-50"
                     />
                   )}
                   {/* <Image
@@ -108,26 +109,26 @@ export default function ProductList({ allListedProducts } : ProductListProp) {
                     height={100}
                   /> */}
                 </span>
-                <span className="text-sm text-black/60">{item.brand}</span>
-                <span className="text-lg font-medium">{item.title}</span>
-                <span className="text-black/60">rating</span>
+                <span className=" hidden sm:block text-sm text-black/60">{item.brand}</span>
+                <span className="text-sm sm:text-lg font-medium line-clamp-2">{item.title}</span>
+                <span className="text-xs sm:text-base text-black/60">rating</span>
 
-                <div className="flex justify-between">
-                  <div className="flex flex-col">
-                    <span className="font-medium text-lg">
+                <div className="flex justify-between flex-1 items-end">
+                  <div className="flex flex-col  ">
+                    <span className="font-medium text-sm sm:text-lg">
                       &#8377;{item.price}
                     </span>
-                    <span className="line-through text-black/60 text-xs">
-                      &#8377;{item.price}{" "}
+                    <span className="line-through text-black/60 text-[10px] sm:text-xs">
+                      &#8377;{item.price}
                     </span>
                   </div>
                   <button
-                    className={`flex justify-center items-center text-(--blue) px-3 py-1 rounded-xl  gap-2 bg-blue-200/30 ${isInCart && " border-2 border-blue-800"}`}
+                    className={`flex justify-center items-center text-(--blue) px-3 py-1.5 sm:py-1 rounded-sm sm:rounded-xl  gap-2 bg-blue-200/30 ${isInCart && " border-2 border-blue-800"}`}
                     onClick={(e) => handleAdd(e, item._id, isInCart)}
                   >
-                    {" "}
-                    {!isInCart && <MdOutlineAddShoppingCart />}{" "}
-                    {isInCart ? "Go to cart" : "Add"}
+                    
+                    {!isInCart ? <MdOutlineAddShoppingCart /> : <BsFillCartCheckFill className="block sm:hidden"/>}
+                    <p className="hidden sm:block ">{isInCart ? "Go to cart" : "Add"}</p>
                   </button>
                 </div>
               </div>

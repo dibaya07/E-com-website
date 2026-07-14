@@ -22,7 +22,7 @@ export default function AdminLayout({
     <>
       <Navbar />
       <div className="flex">
-        <Sidebar />
+        <span className="sm:block hidden "><Sidebar /></span>
         {children}
       </div>
     </>

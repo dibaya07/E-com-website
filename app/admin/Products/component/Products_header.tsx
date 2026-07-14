@@ -2,7 +2,7 @@
 
 export default function Products_header() {
   return (
-    <div className='flex gap-5 bg-gray-200/70 py-3 px-3 justify-between text-sm'>
+    <div className='flex flex-col sm:flex-row gap-5 bg-gray-200/70 py-3 px-3 justify-between text-sm'>
                    <input type="checkbox" />
                     <span className="w-[20%] text-start">Product name</span>
                     <span className="w-[10%] text-start">Category</span>

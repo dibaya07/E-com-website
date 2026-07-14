@@ -21,11 +21,11 @@ export default function Sidebar() {
   ];
 
   return (
-    <div className="sidebar flex flex-col gap-2 w-[17%] border-r border-(--gray) h-[93vh] py-3">
+    <div className="sidebar flex flex-col gap-2 w-full   sm:border-r border-(--gray) sm:h-[93vh] py-3">
       {sidebar_options.map((item) => {
         return (
           <Link
-            className="sidebar_btns"
+            className="sidebar_btns bg-white sm:bg-transparent "
             key={nanoid()}
             href={
               item.text == "Dashboard"
@@ -40,14 +40,14 @@ export default function Sidebar() {
           </Link>
         );
       })}
-      <span className="  px-2 py-2 text-xs mx-2">SETTINGS</span>
-      <Link className=" sidebar_btns" href={"/admin/Settings"}>
+      <span className="  px-2 py-2 text-xs mx-2 bg-white sm:bg-transparent">SETTINGS</span>
+      <Link className=" sidebar_btns bg-white sm:bg-transparent" href={"/admin/Settings"}>
         <span className="text-lg">
           <IoIosSettings />
         </span>
         <span className="sidebar_btns_text">General Settings</span>
       </Link>
-      <Link className="sidebar_btns" href={"/admin/Security"}>
+      <Link className="sidebar_btns bg-white sm:bg-transparent" href={"/admin/Security"}>
         <span className="text-lg">
           <MdOutlineSecurity />
         </span>

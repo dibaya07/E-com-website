@@ -5,6 +5,7 @@ import StoreProvider from "./storeProvider";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import InitCart from "./cart/components/InitCart";
+import MobileFooter from "./components/MobileFooter";
 // import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata: Metadata = {
@@ -18,22 +19,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // <html>
-    //   <body
-    //   // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-    //   >
-          // <ClerkProvider>
         <StoreProvider>
             <Navbar />
             <InitCart />
             {children}
             <Footer />
         </StoreProvider>
-    //  </ClerkProvider> 
-    //   </body>
-    // </html>
         );
       }
-      
-      // {children}
+
       

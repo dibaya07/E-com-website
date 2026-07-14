@@ -6,7 +6,7 @@ import Subscribe from "./components/Subscribe";
 export default function Home() {
   return (
     <div className="bg-white">
-      <div className="bg-(--gray) py-2 px-5">
+      <div className="bg-(--gray) py-2 px-2.5 sm:px-5">
         <Banner />
         <Category />
         <BestSeller />
