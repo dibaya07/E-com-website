@@ -5,7 +5,7 @@ import StoreProvider from "./storeProvider";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import InitCart from "./cart/components/InitCart";
-import MobileFooter from "./components/MobileFooter";
+// import MobileFooter from "./components/MobileFooter";
 // import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata: Metadata = {
