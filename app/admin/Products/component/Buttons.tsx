@@ -4,7 +4,11 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import { MdDelete } from "react-icons/md";
 
-export const DeleteProduct = ({ id } ) => {
+type ProductID = {
+  id : number
+}
+
+export const DeleteProduct = ({ id } : ProductID ) => {
   const router = useRouter();
 
   const handleDelete = async () => {
