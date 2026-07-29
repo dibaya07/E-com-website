@@ -1,3 +1,15 @@
+import React from 'react'
+
+export default function page() {
+  return (
+    <div>
+      success
+    </div>
+  )
+}
+
+
+
 
 // import { redirect } from 'next/navigation'
 // import { stripe } from '@/lib/stripe'
