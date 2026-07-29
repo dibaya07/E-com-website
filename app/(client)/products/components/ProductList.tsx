@@ -40,6 +40,11 @@ export default function ProductList({ allListedProducts } : ProductListProp) {
     }
   };
 
+  // useEffect(() => {
+  //   console.log(allProducts)
+  // }, [allProducts])
+  
+
   useEffect(() => {
     getAllProducts();
   }, [allListedProducts.allProducts]);
