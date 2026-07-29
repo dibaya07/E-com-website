@@ -7,11 +7,16 @@ import { FaMinus } from "react-icons/fa6";
 import ProductSpecification from "../components/ProductSpecification";
 import CustomerReviews from "../components/CustomerReviews";
 import { productIdParams , Products as ProductType} from "../../types/product.types";
+import { error } from "console";
 
 export default async function page({ params }: productIdParams) {
   const { id } = await params;
 
-  const res : ProductType = await Products.findById({ _id: id });
+  const res : ProductType |null = await Products.findById({ _id: id });
+
+  if(!res){
+    throw new Error("product not found")
+  }
 
   return (
     <div>
