@@ -1,11 +1,11 @@
 import { createClient } from "redis";
 
 export const redis = createClient({
-    username: 'default',
-    password: '46wHGVEXWDxbWpjvNI7NUYnFcQGzfJke',
+    username: process.env.REDIS_USERNAME,
+    password: process.env.REDIS_PASSWORD,
     socket: {
-        host: 'retroclean-library-jadeite-57254.db.redis.io',
-        port: 19637
+        host: process.env.REDIS_HOST,
+        port:Number(process.env.REDIS_PORT)
     }
     });
 // export const redis = createClient({
