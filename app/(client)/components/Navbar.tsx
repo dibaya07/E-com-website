@@ -1,17 +1,17 @@
 import React from "react";
 import { FaBagShopping } from "react-icons/fa6";
-import { IoSearch } from "react-icons/io5";
-import { FaArrowRight } from "react-icons/fa";
+// import { IoSearch } from "react-icons/io5";
+// import { FaArrowRight } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
 import { IoMdCart } from "react-icons/io";
 import Link from "next/link";
 import CartIItemCount from "../cart/components/CartIItemCount";
 
-import AdminBtn from "./AdminBtn";
+// import AdminBtn from "./AdminBtn";
 import MenuBtn from "./MenuBtn";
 // import Authentication from "./Authentication";
 import SearchBar from "./SearchBar";
-import { Authentication } from "./Authentication";
+// import { Authentication } from "./Authentication";
 // import { auth, currentUser } from '@clerk/nextjs/server'
 
 export default function Navbar() {
@@ -44,7 +44,7 @@ export default function Navbar() {
         </span>
 
         {/* authentication buttons */}
-        <Authentication />
+        {/* <Authentication /> */}
 
         {/* cartlogo */}
         <Link

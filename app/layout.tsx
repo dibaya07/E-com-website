@@ -1,4 +1,4 @@
-import { ClerkProvider } from "@clerk/nextjs";
+// import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import "@/app/globals.css";
 
@@ -15,10 +15,13 @@ export default async function RootLayout({
 
 
   return (
-    <ClerkProvider>
+    // <ClerkProvider>
       <html lang="en">
         <body>{children}</body>
       </html>
-     </ClerkProvider>
+     
   );
 }
+
+
+{/* </ClerkProvider> */}

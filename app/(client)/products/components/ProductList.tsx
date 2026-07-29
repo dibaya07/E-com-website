@@ -64,6 +64,24 @@ export default function ProductList({ allListedProducts } : ProductListProp) {
 
   if (loading) return <div>loading...</div>;
 
+  const handleShare = (item)=> {
+  if (navigator.share) {
+    navigator.share({
+      title: item.name,
+      text: item.description,
+      url: window.location.href,
+    });
+  } else {
+    alert("Sharing is not supported on this device.");
+  }
+}
+
+const copyItem = (e)=>{
+  e.stopPropagation();
+  navigator.clipboard.writeText(window.location.href);
+alert("Product link copied!");
+}
+
   return (
     <>
       <div className="flex flex-wrap justify-start gap-x-2 sm:gap-x-16 lg:gap-x-10 xl:gap-x-16 gap-y-6 ">
@@ -112,7 +130,14 @@ export default function ProductList({ allListedProducts } : ProductListProp) {
                 <span className=" hidden sm:block text-sm text-black/60">{item.brand}</span>
                 <span className="text-sm sm:text-lg font-medium line-clamp-2">{item.title}</span>
                 <span className="text-xs sm:text-base text-black/60">rating</span>
-
+                {/* Share button and copy button */}
+                <button onClick={() => handleShare(item)}>
+                  Share
+                </button>
+                <button onClick={copyItem} className="cursor-pointer">
+                  Copy
+                </button>
+                
                 <div className="flex justify-between flex-1 items-end">
                   <div className="flex flex-col  ">
                     <span className="font-medium text-sm sm:text-lg">

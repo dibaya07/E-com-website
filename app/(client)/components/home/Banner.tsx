@@ -5,7 +5,7 @@ import { FaArrowRight } from "react-icons/fa6";
 import Image from "next/image";
 // import ShopBtn from "./ShopBtn";
 import Link from "next/link";
-import AdminBtn from "../AdminBtn";
+// import AdminBtn from "../AdminBtn";
 
 export default function Banner() {
   return (
@@ -47,7 +47,7 @@ export default function Banner() {
             View Catalog
           </button>
          </span> */}
-          <AdminBtn/>
+          {/* <AdminBtn/> */}
         </div>
       </div>
       <div className="right sm:flex flex-1 justify-center items-center hidden">
