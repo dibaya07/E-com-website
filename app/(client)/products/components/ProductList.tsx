@@ -64,10 +64,10 @@ export default function ProductList({ allListedProducts } : ProductListProp) {
 
   if (loading) return <div>loading...</div>;
 
-  const handleShare = (item)=> {
+  const handleShare = (item : Products)=> {
   if (navigator.share) {
     navigator.share({
-      title: item.name,
+      title: item.title,
       text: item.description,
       url: window.location.href,
     });
@@ -76,7 +76,7 @@ export default function ProductList({ allListedProducts } : ProductListProp) {
   }
 }
 
-const copyItem = (e)=>{
+const copyItem = (e : React.MouseEvent<HTMLButtonElement>)=>{
   e.stopPropagation();
   navigator.clipboard.writeText(window.location.href);
 alert("Product link copied!");

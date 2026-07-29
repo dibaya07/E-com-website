@@ -12,3 +12,13 @@
 //     </>
 //   )
 // }
+
+
+export default function AdminBtn() {
+  return (
+    <div>
+      admin
+    </div>
+  )
+}
+

@@ -3,7 +3,7 @@
 export default function ProductSpecification() {
 
 
-const copyItem = (e)=>{
+const copyItem = (e : React.MouseEvent<HTMLButtonElement>)=>{
   e.stopPropagation();
   navigator.clipboard.writeText(window.location.href);
 alert("Product link copied!");

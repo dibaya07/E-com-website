@@ -4,7 +4,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import { MdDelete } from "react-icons/md";
 
-export const DeleteProduct = ({ id }) => {
+export const DeleteProduct = ({ id } ) => {
   const router = useRouter();
 
   const handleDelete = async () => {
