@@ -16,6 +16,7 @@ export async function GET(request: NextRequest) {
 
     } catch (error) {
         console.log('product route error', error)
+         return NextResponse.json({ message:"Error found" })
     }
 }
 

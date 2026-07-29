@@ -11,6 +11,7 @@ export default async function connected() {
         if (!process.env.CONNECTION_STRING) {
             throw new Error('connection is not defined')
         }
+        console.log(process.env.CONNECTION_STRING)
 
         const res = await mongoose.connect(process.env.CONNECTION_STRING)
         console.log('database connected..')

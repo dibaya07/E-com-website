@@ -21,6 +21,7 @@ export default async function Products({
     console.log("Did api call")
     const res = await fetch(`${process.env.APP_URL}/api/products?page=${page}`);
     allProducts = await res.json();
+    console.log(allProducts)
     await redis.set(`products:${page}`, JSON.stringify(allProducts));
   }
 
